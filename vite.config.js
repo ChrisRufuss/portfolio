@@ -5,5 +5,5 @@ import { defineConfig } from 'vite'
 // Set base to './' so that assets resolve smoothly on GitHub Pages and static preview hosts
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/portfolio/',
 })
