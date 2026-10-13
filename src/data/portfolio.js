@@ -44,6 +44,8 @@ export const personalInfo = {
   // Contact details
   contact: {
     email: "chrisrufus1617@gmail.com",
+    phone: "+91 99944 50878",
+    phoneRaw: "9994450878",
     
     // Social links
     githubUrl: "https://github.com/ChrisRufuss",

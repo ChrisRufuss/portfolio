@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { Mail, Copy, Check, Send, Sparkles } from 'lucide-react';
+import { Mail, Copy, Check, Send, Sparkles, Phone } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../components/SocialIcons';
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolio';
 
 export default function Contact() {
-  const [copied, setCopied] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personalInfo.contact.email);
-    setCopied(true);
+    setCopiedEmail(true);
     
     // Subtle confetti burst on copy
     try {
@@ -23,7 +24,25 @@ export default function Contact() {
       // Ignore if confetti fails
     }
 
-    setTimeout(() => setCopied(false), 2500);
+    setTimeout(() => setCopiedEmail(false), 2500);
+  };
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText(personalInfo.contact.phoneRaw || "9994450878");
+    setCopiedPhone(true);
+    
+    try {
+      confetti({
+        particleCount: 35,
+        spread: 60,
+        origin: { y: 0.8 },
+        colors: ['#00f0ff', '#3b82f6', '#8b5cf6'],
+      });
+    } catch (e) {
+      // Ignore if confetti fails
+    }
+
+    setTimeout(() => setCopiedPhone(false), 2500);
   };
 
   return (
@@ -91,65 +110,190 @@ export default function Contact() {
           </div>
 
           <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-            Direct Email Channel
+            Get In Touch Directly
           </h3>
 
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '2rem', maxWidth: '480px', margin: '0 auto 2rem auto' }}>
-            Click below to send a direct message via your mail client or copy my email address to your clipboard.
+            Feel free to reach out directly via email or phone for internship roles, engineering collaborations, or inquiries.
           </p>
 
-          {/* Email Display & Copy Action */}
+          {/* Contact Channels Grid (Email & Phone) */}
           <div
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
               gap: '1rem',
-              background: 'rgba(5, 8, 20, 0.85)',
-              border: '1px solid rgba(79, 140, 255, 0.3)',
-              borderRadius: 'var(--radius-md)',
-              padding: '0.75rem 1.25rem',
-              maxWidth: '100%',
               marginBottom: '2rem',
-              boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.5)',
+              textAlign: 'left',
             }}
           >
-            <span
+            {/* Email Channel */}
+            <div
               style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'clamp(0.85rem, 3vw, 1.05rem)',
-                color: 'var(--cyan-accent)',
-                letterSpacing: '0.02em',
-                wordBreak: 'break-all',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '0.85rem',
+                background: 'rgba(5, 8, 20, 0.85)',
+                border: '1px solid rgba(79, 140, 255, 0.3)',
+                borderRadius: 'var(--radius-md)',
+                padding: '0.85rem 1.15rem',
+                boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.5)',
               }}
             >
-              {personalInfo.contact.email}
-            </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', minWidth: 0 }}>
+                <div
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '8px',
+                    background: 'rgba(0, 240, 255, 0.1)',
+                    color: 'var(--cyan-accent)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                  }}
+                >
+                  <Mail size={18} />
+                </div>
+                <div style={{ minWidth: 0 }}>
+                  <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
+                    Email Address
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.88rem',
+                      color: 'var(--cyan-accent)',
+                      display: 'block',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
+                    }}
+                    title={personalInfo.contact.email}
+                  >
+                    {personalInfo.contact.email}
+                  </span>
+                </div>
+              </div>
 
-            <button
-              type="button"
-              onClick={handleCopyEmail}
-              aria-label="Copy email address"
-              className="btn btn-secondary"
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                aria-label="Copy email address"
+                className="btn btn-secondary"
+                style={{
+                  padding: '0.45rem 0.75rem',
+                  fontSize: '0.78rem',
+                  gap: '0.35rem',
+                  flexShrink: 0,
+                }}
+              >
+                {copiedEmail ? (
+                  <>
+                    <Check size={13} style={{ color: '#34d399' }} />
+                    <span style={{ color: '#34d399' }}>Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy size={13} />
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Phone Channel */}
+            <div
               style={{
-                padding: '0.45rem 0.85rem',
-                fontSize: '0.82rem',
-                gap: '0.4rem',
-                flexShrink: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '0.85rem',
+                background: 'rgba(5, 8, 20, 0.85)',
+                border: '1px solid rgba(79, 140, 255, 0.3)',
+                borderRadius: 'var(--radius-md)',
+                padding: '0.85rem 1.15rem',
+                boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.5)',
               }}
             >
-              {copied ? (
-                <>
-                  <Check size={14} style={{ color: '#34d399' }} />
-                  <span style={{ color: '#34d399' }}>Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Copy size={14} />
-                  <span>Copy</span>
-                </>
-              )}
-            </button>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', minWidth: 0 }}>
+                <div
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '8px',
+                    background: 'rgba(59, 130, 246, 0.15)',
+                    color: '#60a5fa',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                  }}
+                >
+                  <Phone size={18} />
+                </div>
+                <div>
+                  <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
+                    Phone / Call
+                  </span>
+                  <a
+                    href={`tel:${personalInfo.contact.phoneRaw}`}
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.92rem',
+                      color: 'var(--text-primary)',
+                      textDecoration: 'none',
+                      fontWeight: 600,
+                      display: 'block',
+                      transition: 'color 0.2s',
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--cyan-accent)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
+                  >
+                    {personalInfo.contact.phone}
+                  </a>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '0.4rem', flexShrink: 0 }}>
+                <a
+                  href={`tel:${personalInfo.contact.phoneRaw}`}
+                  className="btn btn-secondary"
+                  style={{
+                    padding: '0.45rem 0.65rem',
+                    fontSize: '0.78rem',
+                  }}
+                  aria-label="Call phone number"
+                >
+                  Call
+                </a>
+                <button
+                  type="button"
+                  onClick={handleCopyPhone}
+                  aria-label="Copy phone number"
+                  className="btn btn-secondary"
+                  style={{
+                    padding: '0.45rem 0.75rem',
+                    fontSize: '0.78rem',
+                    gap: '0.35rem',
+                  }}
+                >
+                  {copiedPhone ? (
+                    <>
+                      <Check size={13} style={{ color: '#34d399' }} />
+                      <span style={{ color: '#34d399' }}>Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={13} />
+                      <span>Copy</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* External Action Links */}
