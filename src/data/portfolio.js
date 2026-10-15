@@ -56,8 +56,8 @@ export const personalInfo = {
      * - url: set to your active profile URL (e.g., "https://linkedin.com/in/chrisrufus")
      */
     linkedin: {
-      enabled: false, // Set to true to display the LinkedIn button
-      url: "https://linkedin.com/in/",
+      enabled: true,
+      url: "https://www.linkedin.com/in/chris-rufus-0a6b71433/",
     },
   },
 
