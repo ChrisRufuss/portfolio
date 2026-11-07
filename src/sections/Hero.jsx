@@ -1,4 +1,5 @@
-import { ArrowRight, Mail, FileText, Sparkles, Terminal } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Mail, FileText } from 'lucide-react';
 import { GithubIcon } from '../components/SocialIcons';
 import { personalInfo } from '../data/portfolio';
 import CyberCanvasVisual from '../components/CyberCanvasVisual';
@@ -37,8 +38,8 @@ export default function Hero() {
                 gap: '0.6rem',
                 padding: '0.4rem 0.95rem',
                 borderRadius: 'var(--radius-full)',
-                background: 'rgba(0, 240, 255, 0.08)',
-                border: '1px solid rgba(0, 240, 255, 0.25)',
+                background: '#EFF6FF',
+                border: '1px solid #BFDBFE',
                 marginBottom: '1.5rem',
               }}
             >
@@ -47,8 +48,7 @@ export default function Hero() {
                   width: '8px',
                   height: '8px',
                   borderRadius: '50%',
-                  background: '#10b981',
-                  boxShadow: '0 0 10px #10b981',
+                  background: '#10B981',
                   display: 'inline-block',
                 }}
               />
@@ -57,8 +57,8 @@ export default function Hero() {
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.75rem',
                   fontWeight: 600,
-                  letterSpacing: '0.06em',
-                  color: 'var(--cyan-accent)',
+                  letterSpacing: '0.04em',
+                  color: '#2563EB',
                   textTransform: 'uppercase',
                 }}
               >
@@ -70,7 +70,7 @@ export default function Hero() {
             <div style={{ marginBottom: '0.5rem' }}>
               <span
                 style={{
-                  color: 'var(--text-secondary)',
+                  color: '#64748B',
                   fontSize: '1.15rem',
                   fontWeight: 500,
                   display: 'block',
@@ -81,36 +81,37 @@ export default function Hero() {
               </span>
               <h1
                 style={{
-                  fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
+                  fontSize: 'clamp(2.5rem, 5vw, 3.8rem)',
                   fontWeight: 800,
                   lineHeight: 1.1,
                   letterSpacing: '-0.03em',
+                  color: '#172554',
                   marginBottom: '1rem',
                 }}
               >
-                <span className="gradient-text">{personalInfo.name}</span>
+                {personalInfo.name}
               </h1>
             </div>
 
-            {/* Animated Headline */}
+            {/* Headline */}
             <h2
               style={{
                 fontSize: 'clamp(1.35rem, 2.5vw, 1.85rem)',
                 fontWeight: 600,
-                color: 'var(--text-primary)',
-                lineHeight: 1.3,
+                color: '#172554',
+                lineHeight: 1.35,
                 marginBottom: '1.25rem',
               }}
             >
-              {personalInfo.roleHeadline}
+              Building ideas into <span style={{ color: '#2563EB' }}>digital reality.</span>
             </h2>
 
             {/* Introduction paragraph */}
             <p
               style={{
-                color: 'var(--text-secondary)',
+                color: '#64748B',
                 fontSize: '1.05rem',
-                lineHeight: 1.7,
+                lineHeight: 1.75,
                 marginBottom: '2rem',
                 maxWidth: '540px',
               }}
@@ -138,7 +139,7 @@ export default function Hero() {
                 <span>Get In Touch</span>
               </a>
 
-              {/* Resume Button: Rendered only when resume is genuinely enabled */}
+              {/* Resume Button: Rendered only when resume is enabled */}
               {personalInfo.resume.enabled && (
                 <a
                   href={personalInfo.resume.filePath}
@@ -159,7 +160,7 @@ export default function Hero() {
                 alignItems: 'center',
                 gap: '1.5rem',
                 paddingTop: '1.5rem',
-                borderTop: '1px solid rgba(79, 140, 255, 0.12)',
+                borderTop: '1px solid #E2E8F0',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
@@ -171,30 +172,30 @@ export default function Hero() {
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.4rem',
-                    color: 'var(--text-secondary)',
+                    gap: '0.45rem',
+                    color: '#64748B',
                     textDecoration: 'none',
                     fontSize: '0.85rem',
                     fontFamily: 'var(--font-mono)',
                     transition: 'color 0.2s',
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--cyan-accent)')}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#2563EB')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = '#64748B')}
                 >
                   <GithubIcon size={16} />
                   <span>github.com/ChrisRufuss</span>
                 </a>
               </div>
 
-              <div style={{ height: '16px', width: '1px', background: 'rgba(255,255,255,0.1)' }} />
+              <div style={{ height: '16px', width: '1px', background: '#E2E8F0' }} />
 
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+              <span style={{ fontSize: '0.85rem', color: '#64748B', fontFamily: 'var(--font-mono)' }}>
                 MKCE • Karur, TN
               </span>
             </div>
           </div>
 
-          {/* Right Hero Interactive 3D/Canvas Visual */}
+          {/* Right Hero Interactive Visual */}
           <div
             style={{
               position: 'relative',

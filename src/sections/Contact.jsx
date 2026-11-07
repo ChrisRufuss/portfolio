@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Copy, Check, Send, Sparkles, Phone } from 'lucide-react';
+import { Mail, Copy, Check, Send, Phone } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../components/SocialIcons';
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolio';
@@ -15,10 +15,10 @@ export default function Contact() {
     // Subtle confetti burst on copy
     try {
       confetti({
-        particleCount: 35,
-        spread: 60,
+        particleCount: 30,
+        spread: 55,
         origin: { y: 0.8 },
-        colors: ['#00f0ff', '#3b82f6', '#8b5cf6'],
+        colors: ['#2563EB', '#3B82F6', '#60A5FA', '#172554'],
       });
     } catch (e) {
       // Ignore if confetti fails
@@ -33,10 +33,10 @@ export default function Contact() {
     
     try {
       confetti({
-        particleCount: 35,
-        spread: 60,
+        particleCount: 30,
+        spread: 55,
         origin: { y: 0.8 },
-        colors: ['#00f0ff', '#3b82f6', '#8b5cf6'],
+        colors: ['#2563EB', '#3B82F6', '#60A5FA', '#172554'],
       });
     } catch (e) {
       // Ignore if confetti fails
@@ -67,53 +67,38 @@ export default function Contact() {
           style={{
             maxWidth: '720px',
             margin: '0 auto',
-            background: 'linear-gradient(145deg, rgba(16, 25, 61, 0.75) 0%, rgba(9, 14, 38, 0.9) 100%)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
+            background: '#FFFFFF',
             borderRadius: 'var(--radius-lg)',
-            border: '1px solid rgba(0, 240, 255, 0.25)',
-            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 240, 255, 0.08)',
+            border: '1px solid #E2E8F0',
+            boxShadow: 'var(--shadow-md)',
             padding: '3rem 2rem',
             textAlign: 'center',
             position: 'relative',
             overflow: 'hidden',
           }}
         >
-          {/* Subtle top light bar */}
           <div
             style={{
-              position: 'absolute',
-              top: 0,
-              left: '25%',
-              right: '25%',
-              height: '2px',
-              background: 'linear-gradient(90deg, transparent, #00f0ff, transparent)',
-            }}
-          />
-
-          <div
-            style={{
-              width: '64px',
-              height: '64px',
+              width: '60px',
+              height: '60px',
               borderRadius: '50%',
-              background: 'rgba(0, 240, 255, 0.12)',
-              border: '1px solid rgba(0, 240, 255, 0.35)',
+              background: '#EFF6FF',
+              border: '1px solid #BFDBFE',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'var(--cyan-accent)',
+              color: '#2563EB',
               margin: '0 auto 1.5rem auto',
-              boxShadow: '0 0 25px rgba(0, 240, 255, 0.2)',
             }}
           >
-            <Send size={28} />
+            <Send size={26} />
           </div>
 
-          <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+          <h3 style={{ fontSize: '1.45rem', fontWeight: 700, color: '#172554', marginBottom: '0.5rem' }}>
             Get In Touch Directly
           </h3>
 
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '2rem', maxWidth: '480px', margin: '0 auto 2rem auto' }}>
+          <p style={{ color: '#64748B', fontSize: '0.95rem', marginBottom: '2rem', maxWidth: '480px', margin: '0 auto 2rem auto' }}>
             Feel free to reach out directly via email or phone for internship roles, engineering collaborations, or inquiries.
           </p>
 
@@ -134,11 +119,10 @@ export default function Contact() {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 gap: '0.85rem',
-                background: 'rgba(5, 8, 20, 0.85)',
-                border: '1px solid rgba(79, 140, 255, 0.3)',
+                background: '#F8FAFC',
+                border: '1px solid #E2E8F0',
                 borderRadius: 'var(--radius-md)',
                 padding: '0.85rem 1.15rem',
-                boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.5)',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', minWidth: 0 }}>
@@ -147,8 +131,8 @@ export default function Contact() {
                     width: '36px',
                     height: '36px',
                     borderRadius: '8px',
-                    background: 'rgba(0, 240, 255, 0.1)',
-                    color: 'var(--cyan-accent)',
+                    background: '#EFF6FF',
+                    color: '#2563EB',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -158,23 +142,29 @@ export default function Contact() {
                   <Mail size={18} />
                 </div>
                 <div style={{ minWidth: 0 }}>
-                  <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
+                  <span style={{ fontSize: '0.72rem', color: '#94A3B8', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
                     Email Address
                   </span>
-                  <span
+                  <a
+                    href={`mailto:${personalInfo.contact.email}`}
                     style={{
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.88rem',
-                      color: 'var(--cyan-accent)',
+                      color: '#172554',
+                      fontWeight: 600,
                       display: 'block',
                       overflow: 'hidden',
                       textOverflow: 'ellipsis',
                       whiteSpace: 'nowrap',
+                      textDecoration: 'none',
+                      transition: 'color 0.2s',
                     }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#2563EB')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#172554')}
                     title={personalInfo.contact.email}
                   >
                     {personalInfo.contact.email}
-                  </span>
+                  </a>
                 </div>
               </div>
 
@@ -192,8 +182,8 @@ export default function Contact() {
               >
                 {copiedEmail ? (
                   <>
-                    <Check size={13} style={{ color: '#34d399' }} />
-                    <span style={{ color: '#34d399' }}>Copied!</span>
+                    <Check size={13} style={{ color: '#059669' }} />
+                    <span style={{ color: '#059669' }}>Copied!</span>
                   </>
                 ) : (
                   <>
@@ -211,11 +201,10 @@ export default function Contact() {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 gap: '0.85rem',
-                background: 'rgba(5, 8, 20, 0.85)',
-                border: '1px solid rgba(79, 140, 255, 0.3)',
+                background: '#F8FAFC',
+                border: '1px solid #E2E8F0',
                 borderRadius: 'var(--radius-md)',
                 padding: '0.85rem 1.15rem',
-                boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.5)',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', minWidth: 0 }}>
@@ -224,8 +213,8 @@ export default function Contact() {
                     width: '36px',
                     height: '36px',
                     borderRadius: '8px',
-                    background: 'rgba(59, 130, 246, 0.15)',
-                    color: '#60a5fa',
+                    background: '#EFF6FF',
+                    color: '#2563EB',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -235,7 +224,7 @@ export default function Contact() {
                   <Phone size={18} />
                 </div>
                 <div>
-                  <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
+                  <span style={{ fontSize: '0.72rem', color: '#94A3B8', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
                     Phone / Call
                   </span>
                   <a
@@ -243,14 +232,14 @@ export default function Contact() {
                     style={{
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.92rem',
-                      color: 'var(--text-primary)',
+                      color: '#172554',
                       textDecoration: 'none',
                       fontWeight: 600,
                       display: 'block',
                       transition: 'color 0.2s',
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--cyan-accent)')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#2563EB')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#172554')}
                   >
                     {personalInfo.contact.phone}
                   </a>
@@ -282,8 +271,8 @@ export default function Contact() {
                 >
                   {copiedPhone ? (
                     <>
-                      <Check size={13} style={{ color: '#34d399' }} />
-                      <span style={{ color: '#34d399' }}>Copied!</span>
+                      <Check size={13} style={{ color: '#059669' }} />
+                      <span style={{ color: '#059669' }}>Copied!</span>
                     </>
                   ) : (
                     <>
@@ -306,7 +295,7 @@ export default function Contact() {
               alignItems: 'center',
             }}
           >
-            {/* Primary Working Mailto Button */}
+            {/* Primary Working Mailto Button: Solid #2563EB, text #FFFFFF */}
             <a
               href={`mailto:${personalInfo.contact.email}?subject=Collaboration%20or%20Internship%20Inquiry%20-%20Chris%20Rufus`}
               className="btn btn-primary"
@@ -329,7 +318,7 @@ export default function Contact() {
               <span>GitHub Profile</span>
             </a>
 
-            {/* Optional LinkedIn Button: Only appears when configured! */}
+            {/* LinkedIn Button: Only appears when configured! */}
             {personalInfo.contact.linkedin.enabled && (
               <a
                 href={personalInfo.contact.linkedin.url}

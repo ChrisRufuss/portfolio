@@ -35,10 +35,6 @@ export default function App() {
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Ambient background glow orbs */}
-      <div className="ambient-glow-1" aria-hidden="true" />
-      <div className="ambient-glow-2" aria-hidden="true" />
-
       {/* Navigation */}
       <Navbar activeSection={activeSection} />
 

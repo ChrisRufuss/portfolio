@@ -4,7 +4,7 @@ import { journeyData, currentExplorations } from '../data/portfolio';
 
 export default function Journey() {
   return (
-    <section id="journey" className="section-wrapper" style={{ background: 'rgba(7, 11, 30, 0.4)' }}>
+    <section id="journey" className="section-wrapper" style={{ background: '#F1F5F9' }}>
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
@@ -22,7 +22,7 @@ export default function Journey() {
 
         {/* Timeline Layout */}
         <div style={{ position: 'relative', maxWidth: '850px', margin: '0 auto 4rem auto' }}>
-          {/* Vertical Glowing Line */}
+          {/* Vertical Clean Line */}
           <div
             style={{
               position: 'absolute',
@@ -30,8 +30,7 @@ export default function Journey() {
               bottom: '15px',
               left: '20px',
               width: '2px',
-              background: 'linear-gradient(to bottom, #00f0ff, #3b82f6, #a855f7)',
-              boxShadow: '0 0 10px rgba(0, 240, 255, 0.3)',
+              background: '#CBD5E1',
             }}
             className="timeline-line"
           />
@@ -56,15 +55,15 @@ export default function Journey() {
                       width: '42px',
                       height: '42px',
                       borderRadius: '50%',
-                      background: isCurrent ? '#00f0ff' : 'var(--bg-surface)',
-                      border: isCurrent ? '4px solid #0b112c' : '2px solid rgba(0, 240, 255, 0.4)',
+                      background: isCurrent ? '#2563EB' : '#FFFFFF',
+                      border: isCurrent ? '4px solid #EFF6FF' : '2px solid #CBD5E1',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: isCurrent ? '#040817' : 'var(--cyan-accent)',
+                      color: isCurrent ? '#FFFFFF' : '#64748B',
                       zIndex: 2,
                       flexShrink: 0,
-                      boxShadow: isCurrent ? '0 0 20px rgba(0, 240, 255, 0.8)' : 'none',
+                      boxShadow: isCurrent ? '0 0 0 2px #2563EB' : 'var(--shadow-sm)',
                     }}
                   >
                     {item.status === 'Completed' ? (
@@ -78,42 +77,42 @@ export default function Journey() {
                   <div
                     style={{
                       flex: 1,
-                      background: 'var(--bg-glass-card)',
-                      backdropFilter: 'blur(16px)',
+                      background: '#FFFFFF',
                       borderRadius: 'var(--radius-lg)',
-                      border: isCurrent ? '1px solid rgba(0, 240, 255, 0.4)' : '1px solid var(--border-subtle)',
+                      border: isCurrent ? '1px solid #BFDBFE' : '1px solid #E2E8F0',
                       padding: '1.75rem',
                       boxShadow: 'var(--shadow-sm)',
                     }}
                   >
                     <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                      <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--cyan-accent)', textTransform: 'uppercase' }}>
+                      <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: '#2563EB', fontWeight: 600, textTransform: 'uppercase' }}>
                         {item.phase} • {item.period}
                       </span>
                       <span
                         style={{
-                          fontSize: '0.72rem',
+                          fontSize: '0.75rem',
                           fontFamily: 'var(--font-mono)',
-                          padding: '0.2rem 0.6rem',
+                          fontWeight: 600,
+                          padding: '0.2rem 0.65rem',
                           borderRadius: '99px',
-                          background: isCurrent ? 'rgba(0, 240, 255, 0.15)' : 'rgba(255, 255, 255, 0.05)',
-                          color: isCurrent ? 'var(--cyan-accent)' : 'var(--text-muted)',
-                          border: isCurrent ? '1px solid rgba(0, 240, 255, 0.3)' : '1px solid rgba(255, 255, 255, 0.1)',
+                          background: isCurrent ? '#EFF6FF' : '#F1F5F9',
+                          color: isCurrent ? '#2563EB' : '#64748B',
+                          border: isCurrent ? '1px solid #BFDBFE' : '1px solid #E2E8F0',
                         }}
                       >
                         {item.status}
                       </span>
                     </div>
 
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#172554', marginBottom: '0.25rem' }}>
                       {item.title}
                     </h3>
 
-                    <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '0.75rem' }}>
+                    <p style={{ fontSize: '0.88rem', color: '#64748B', marginBottom: '0.75rem' }}>
                       {item.place}
                     </p>
 
-                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.94rem', lineHeight: 1.6 }}>
+                    <p style={{ color: '#64748B', fontSize: '0.94rem', lineHeight: 1.6 }}>
                       {item.description}
                     </p>
                   </div>
@@ -126,13 +125,13 @@ export default function Journey() {
         {/* Currently Exploring Module */}
         <div
           style={{
-            background: 'var(--bg-glass-card)',
-            backdropFilter: 'blur(16px)',
+            background: '#FFFFFF',
             borderRadius: 'var(--radius-lg)',
-            border: '1px solid var(--border-subtle)',
+            border: '1px solid #E2E8F0',
             padding: '2.5rem',
             maxWidth: '850px',
             margin: '0 auto',
+            boxShadow: 'var(--shadow-sm)',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
@@ -141,8 +140,8 @@ export default function Journey() {
                 width: '38px',
                 height: '38px',
                 borderRadius: '10px',
-                background: 'rgba(139, 92, 246, 0.15)',
-                color: 'var(--violet-accent)',
+                background: '#EFF6FF',
+                color: '#2563EB',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -151,10 +150,10 @@ export default function Journey() {
               <Compass size={20} />
             </div>
             <div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#172554' }}>
                 Currently Exploring & Researching
               </h3>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+              <p style={{ fontSize: '0.85rem', color: '#64748B' }}>
                 Concepts and modern software patterns actively being investigated outside syllabus hours.
               </p>
             </div>
@@ -171,19 +170,19 @@ export default function Journey() {
               <div
                 key={i}
                 style={{
-                  background: 'rgba(5, 8, 20, 0.6)',
+                  background: '#F8FAFC',
                   borderRadius: 'var(--radius-md)',
                   padding: '1.25rem',
-                  border: '1px solid rgba(255, 255, 255, 0.05)',
+                  border: '1px solid #E2E8F0',
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--cyan-accent)', marginBottom: '0.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#2563EB', marginBottom: '0.5rem' }}>
                   <Sparkles size={15} />
-                  <h4 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+                  <h4 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#172554' }}>
                     {exp.title}
                   </h4>
                 </div>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                <p style={{ fontSize: '0.85rem', color: '#64748B', lineHeight: 1.5 }}>
                   {exp.description}
                 </p>
               </div>

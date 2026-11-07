@@ -30,7 +30,7 @@ const iconMap = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="section-wrapper" style={{ background: 'rgba(7, 11, 30, 0.4)' }}>
+    <section id="skills" className="section-wrapper" style={{ background: '#F1F5F9' }}>
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
@@ -60,18 +60,14 @@ export default function Skills() {
               <div
                 key={cat.id}
                 style={{
-                  background: isLearning ? 'rgba(16, 25, 61, 0.5)' : 'var(--bg-glass-card)',
-                  backdropFilter: 'blur(16px)',
-                  WebkitBackdropFilter: 'blur(16px)',
+                  background: '#FFFFFF',
                   borderRadius: 'var(--radius-lg)',
-                  border: isLearning 
-                    ? '1px dashed rgba(139, 92, 246, 0.35)' 
-                    : '1px solid var(--border-subtle)',
+                  border: isLearning ? '1px dashed #BFDBFE' : '1px solid #E2E8F0',
                   padding: '2rem',
                   display: 'flex',
                   flexDirection: 'column',
                   position: 'relative',
-                  transition: 'all 0.3s ease',
+                  transition: 'all 0.25s ease',
                   boxShadow: 'var(--shadow-sm)',
                 }}
                 className="skill-category-card"
@@ -83,7 +79,7 @@ export default function Skills() {
                       style={{
                         fontSize: '1.25rem',
                         fontWeight: 700,
-                        color: isLearning ? '#c084fc' : 'var(--text-primary)',
+                        color: '#172554',
                       }}
                     >
                       {cat.title}
@@ -91,20 +87,21 @@ export default function Skills() {
                     {isLearning && (
                       <span
                         style={{
-                          fontSize: '0.72rem',
+                          fontSize: '0.75rem',
                           fontFamily: 'var(--font-mono)',
-                          padding: '0.2rem 0.6rem',
+                          fontWeight: 600,
+                          padding: '0.2rem 0.65rem',
                           borderRadius: '99px',
-                          background: 'rgba(139, 92, 246, 0.15)',
-                          color: '#c084fc',
-                          border: '1px solid rgba(139, 92, 246, 0.3)',
+                          background: '#EFF6FF',
+                          color: '#2563EB',
+                          border: '1px solid #BFDBFE',
                         }}
                       >
                         In Progress
                       </span>
                     )}
                   </div>
-                  <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+                  <p style={{ fontSize: '0.88rem', color: '#64748B', lineHeight: 1.5 }}>
                     {cat.description}
                   </p>
                 </div>
@@ -122,8 +119,8 @@ export default function Skills() {
                           justifyContent: 'space-between',
                           padding: '0.85rem 1rem',
                           borderRadius: 'var(--radius-md)',
-                          background: 'rgba(5, 8, 20, 0.6)',
-                          border: '1px solid rgba(255, 255, 255, 0.04)',
+                          background: '#F8FAFC',
+                          border: '1px solid #E2E8F0',
                           transition: 'all 0.2s ease',
                         }}
                         className="skill-pill"
@@ -134,8 +131,8 @@ export default function Skills() {
                               width: '36px',
                               height: '36px',
                               borderRadius: '8px',
-                              background: isLearning ? 'rgba(139, 92, 246, 0.12)' : 'rgba(0, 240, 255, 0.1)',
-                              color: isLearning ? '#c084fc' : 'var(--cyan-accent)',
+                              background: '#EFF6FF',
+                              color: '#2563EB',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
@@ -144,16 +141,16 @@ export default function Skills() {
                             <IconComponent size={18} />
                           </div>
                           <div>
-                            <span style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--text-primary)', display: 'block' }}>
+                            <span style={{ fontWeight: 600, fontSize: '0.95rem', color: '#172554', display: 'block' }}>
                               {skill.name}
                             </span>
-                            <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                            <span style={{ fontSize: '0.78rem', color: '#64748B' }}>
                               {skill.level}
                             </span>
                           </div>
                         </div>
 
-                        <div style={{ color: isLearning ? '#a855f7' : 'var(--cyan-accent)', opacity: 0.8 }}>
+                        <div style={{ color: '#2563EB' }}>
                           {isLearning ? <Sparkles size={16} /> : <CheckCircle2 size={16} />}
                         </div>
                       </div>
@@ -168,13 +165,13 @@ export default function Skills() {
 
       <style>{`
         .skill-category-card:hover {
-          transform: translateY(-3px);
-          border-color: rgba(0, 240, 255, 0.35);
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 240, 255, 0.06);
+          transform: translateY(-2px);
+          border-color: #CBD5E1;
+          box-shadow: 0 10px 20px -3px rgba(15, 23, 42, 0.08);
         }
         .skill-pill:hover {
-          background: rgba(16, 25, 61, 0.8);
-          border-color: rgba(0, 240, 255, 0.2);
+          background: #EFF6FF;
+          border-color: #BFDBFE;
         }
       `}</style>
     </section>

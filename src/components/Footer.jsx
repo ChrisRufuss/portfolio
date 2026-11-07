@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Mail, Heart, Code2 } from 'lucide-react';
+import { ArrowUp, Mail } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 import { personalInfo } from '../data/portfolio';
 
@@ -11,8 +11,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: '#040612',
-        borderTop: '1px solid var(--border-subtle)',
+        background: '#FFFFFF',
+        borderTop: '1px solid #E2E8F0',
         paddingTop: '3.5rem',
         paddingBottom: '2.5rem',
         position: 'relative',
@@ -28,23 +28,23 @@ export default function Footer() {
             alignItems: 'center',
             gap: '2rem',
             paddingBottom: '2.5rem',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+            borderBottom: '1px solid #E2E8F0',
           }}
         >
           {/* Brand & Tagline */}
-          <div style={{ maxWidth: '400px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
+          <div style={{ maxWidth: '420px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.6rem' }}>
               <div
                 style={{
-                  width: '30px',
-                  height: '30px',
+                  width: '32px',
+                  height: '32px',
                   borderRadius: '8px',
-                  background: 'rgba(0, 240, 255, 0.15)',
-                  border: '1px solid rgba(0, 240, 255, 0.4)',
+                  background: '#EFF6FF',
+                  border: '1px solid #BFDBFE',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--cyan-accent)',
+                  color: '#2563EB',
                   fontFamily: 'var(--font-mono)',
                   fontWeight: 800,
                   fontSize: '0.85rem',
@@ -52,17 +52,17 @@ export default function Footer() {
               >
                 CR
               </div>
-              <span style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--text-primary)' }}>
+              <span style={{ fontWeight: 700, fontSize: '1.1rem', color: '#172554' }}>
                 {personalInfo.name}
               </span>
             </div>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.6 }}>
+            <p style={{ color: '#64748B', fontSize: '0.9rem', lineHeight: 1.6 }}>
               Second-year IT student at MKCE, Karur. Dedicated to solid code architecture, continuous skill refinement, and building practical digital solutions.
             </p>
           </div>
 
           {/* Quick links & Back to Top */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <a
               href={personalInfo.contact.githubUrl}
               target="_blank"
@@ -72,21 +72,24 @@ export default function Footer() {
                 width: '40px',
                 height: '40px',
                 borderRadius: '10px',
-                background: 'rgba(16, 25, 61, 0.8)',
-                border: '1px solid var(--border-subtle)',
+                background: '#FFFFFF',
+                border: '1px solid #E2E8F0',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'var(--text-secondary)',
+                color: '#64748B',
+                boxShadow: 'var(--shadow-sm)',
                 transition: 'all 0.2s',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'var(--cyan-accent)';
-                e.currentTarget.style.borderColor = 'var(--cyan-accent)';
+                e.currentTarget.style.color = '#2563EB';
+                e.currentTarget.style.borderColor = '#BFDBFE';
+                e.currentTarget.style.background = '#EFF6FF';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'var(--text-secondary)';
-                e.currentTarget.style.borderColor = 'var(--border-subtle)';
+                e.currentTarget.style.color = '#64748B';
+                e.currentTarget.style.borderColor = '#E2E8F0';
+                e.currentTarget.style.background = '#FFFFFF';
               }}
             >
               <GithubIcon size={18} />
@@ -99,21 +102,24 @@ export default function Footer() {
                 width: '40px',
                 height: '40px',
                 borderRadius: '10px',
-                background: 'rgba(16, 25, 61, 0.8)',
-                border: '1px solid var(--border-subtle)',
+                background: '#FFFFFF',
+                border: '1px solid #E2E8F0',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'var(--text-secondary)',
+                color: '#64748B',
+                boxShadow: 'var(--shadow-sm)',
                 transition: 'all 0.2s',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'var(--cyan-accent)';
-                e.currentTarget.style.borderColor = 'var(--cyan-accent)';
+                e.currentTarget.style.color = '#2563EB';
+                e.currentTarget.style.borderColor = '#BFDBFE';
+                e.currentTarget.style.background = '#EFF6FF';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'var(--text-secondary)';
-                e.currentTarget.style.borderColor = 'var(--border-subtle)';
+                e.currentTarget.style.color = '#64748B';
+                e.currentTarget.style.borderColor = '#E2E8F0';
+                e.currentTarget.style.background = '#FFFFFF';
               }}
             >
               <Mail size={18} />
@@ -126,25 +132,28 @@ export default function Footer() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.4rem',
+                gap: '0.45rem',
                 padding: '0.55rem 0.95rem',
                 borderRadius: 'var(--radius-md)',
-                background: 'rgba(16, 25, 61, 0.8)',
-                border: '1px solid var(--border-subtle)',
-                color: 'var(--text-secondary)',
+                background: '#FFFFFF',
+                border: '1px solid #E2E8F0',
+                color: '#172554',
                 fontSize: '0.85rem',
                 cursor: 'pointer',
                 fontFamily: 'var(--font-sans)',
-                fontWeight: 500,
+                fontWeight: 600,
+                boxShadow: 'var(--shadow-sm)',
                 transition: 'all 0.2s',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'var(--cyan-accent)';
-                e.currentTarget.style.borderColor = 'var(--cyan-accent)';
+                e.currentTarget.style.color = '#2563EB';
+                e.currentTarget.style.borderColor = '#BFDBFE';
+                e.currentTarget.style.background = '#EFF6FF';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'var(--text-secondary)';
-                e.currentTarget.style.borderColor = 'var(--border-subtle)';
+                e.currentTarget.style.color = '#172554';
+                e.currentTarget.style.borderColor = '#E2E8F0';
+                e.currentTarget.style.background = '#FFFFFF';
               }}
             >
               <span>Back to Top</span>
@@ -153,7 +162,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Copyright & Verification Notice */}
+        {/* Bottom Copyright & Notice */}
         <div
           style={{
             display: 'flex',
@@ -163,7 +172,7 @@ export default function Footer() {
             gap: '1rem',
             paddingTop: '1.75rem',
             fontSize: '0.82rem',
-            color: 'var(--text-muted)',
+            color: '#94A3B8',
             fontFamily: 'var(--font-mono)',
           }}
         >
